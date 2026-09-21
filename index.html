@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Yaira</title>
+
+<link rel="stylesheet" href="estilos.css">
+<link rel="icon" type="image/x-icon" href="img2.ico">
+
+</head>
+
+<body>
+<!-- Encabezado principal -->
+<header class="album-header">
+
+    <div class="header-content">
+
+        <p class="small-title">
+            Para la persona que amo
+        </p>
+
+        <h1>
+            Un pequeño lugar para nuestros recuerdos
+        </h1>
+
+        <p class="header-text">
+            Hay momentos que pasan rápido, pero que uno quisiera
+            guardar para siempre.
+        </p>
+
+        <p class="header-text">
+            Aquí guardé algunos de los nuestros.
+        </p>
+
+    </div>
+
+</header>
+
+
+<!-- Música -->
+<section class="music-section">
+
+    <button
+        class="music-button"
+        onclick="playAudio1()">
+
+        Escuchar nuestra música
+
+    </button>
+
+    <p class="music-description">
+        Puedes ponerla mientras recorres nuestros recuerdos.
+    </p>
+
+</section>
+
+
+<!-- Álbum -->
+<main>
+
+    <section class="album-section">
+
+        <div class="section-title">
+
+            <span>01</span>
+
+            <h2>
+                Nuestros recuerdos
+            </h2>
+
+            <p>
+                Cada foto guarda un momento que quiero seguir
+                recordando contigo.
+            </p>
+
+        </div>
+
+        <!-- Las imágenes y videos se generan desde script.js -->
+        <div
+            class="gallery"
+            id="gallery">
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- Continuar hacia la carta -->
+<section class="next-section">
+
+    <p class="next-text">
+        Y esto es solo el comienzo...
+    </p>
+
+    <a
+        href="pagina2.html"
+        class="carta-button">
+
+        Continuar
+
+    </a>
+
+</section>
+
+
+<!-- Modal para imágenes y videos -->
+<div
+    class="modal"
+    id="modal">
+
+    <button
+        class="close-button"
+        aria-label="Cerrar">
+
+        &times;
+
+    </button>
+
+    <div
+        class="modal-content"
+        id="modal-content">
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
+

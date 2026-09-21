@@ -1,0 +1,646 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap');
+
+/* =========================================================
+CONFIGURACIÓN GENERAL
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: 'DM Sans', sans-serif;
+    background:
+    radial-gradient(circle at 20% 10%, rgba(167, 139, 250, 0.12), transparent 30%),
+    radial-gradient(circle at 80% 40%, rgba(236, 72, 153, 0.08), transparent 30%),
+    linear-gradient(145deg, #170d26, #28143d 45%, #1a1028);
+    min-height: 100vh;
+    color: #f7f0ff;
+}
+
+/* =========================================================
+ENCABEZADO
+========================================================= */
+
+.album-header {
+    position: relative;
+    padding: 100px 25px 90px;
+    text-align: center;
+    overflow: hidden;
+    background:
+    radial-gradient(
+    circle at 50% 0%,
+    rgba(167, 139, 250, 0.25),
+    transparent 55%
+    ),
+    linear-gradient(
+    145deg,
+    #241136,
+    #3b1d5a 55%,
+    #251135
+    );
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+}
+
+/* Brillo decorativo */
+
+.album-header::before {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+
+    top: -300px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background: rgba(167, 139, 250, 0.12);
+
+    border-radius: 50%;
+
+    filter: blur(80px);
+
+    pointer-events: none;
+
+}
+
+/* Línea decorativa */
+
+.album-header::after {
+    content: "";
+    position: absolute;
+
+    bottom: 0;
+    left: 50%;
+
+    width: 80px;
+    height: 2px;
+
+    transform: translateX(-50%);
+
+    background: #c4b5fd;
+
+    opacity: 0.7;
+
+}
+
+.header-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: auto;
+
+}
+
+/* Pequeño texto superior */
+
+.small-title {
+    margin: 0 0 18px;
+    font-size: 0.85rem;
+    font-weight: 600;
+
+    letter-spacing: 4px;
+    text-transform: uppercase;
+
+    color: #c4b5fd;
+
+}
+
+/* Título */
+
+h1 {
+    margin: 0 auto 25px;
+    max-width: 750px;
+
+    font-family: 'Playfair Display', serif;
+
+    font-size: clamp(2.3rem, 6vw, 4.2rem);
+
+    line-height: 1.1;
+
+    font-weight: 600;
+
+    color: #fff;
+
+    text-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.35);
+
+}
+
+/* Textos */
+
+.header-text {
+    max-width: 600px;
+    margin: 8px auto;
+
+    font-size: 1rem;
+
+    line-height: 1.8;
+
+    color: #d8cce8;
+
+}
+
+/* =========================================================
+MÚSICA
+========================================================= */
+
+.music-section {
+    text-align: center;
+    padding: 35px 20px 15px;
+
+}
+
+.music-button {
+    position: relative;
+    padding: 13px 27px;
+
+    border: 1px solid rgba(196, 181, 253, 0.35);
+
+    border-radius: 50px;
+
+    background: rgba(139, 92, 246, 0.12);
+
+    color: #eee5ff;
+
+    font-family: 'DM Sans', sans-serif;
+
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(10px);
+
+    transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+
+}
+
+.music-button:hover {
+    transform: translateY(-3px);
+    background: rgba(139, 92, 246, 0.25);
+
+    border-color: rgba(196, 181, 253, 0.7);
+
+    box-shadow:
+    0 10px 30px rgba(139, 92, 246, 0.2);
+
+}
+
+.music-description {
+    margin: 12px 0 0;
+    color: #9f91ae;
+
+    font-size: 0.8rem;
+
+}
+
+/* =========================================================
+SECCIÓN DEL ÁLBUM
+========================================================= */
+
+.album-section {
+    width: min(1400px, 100%);
+    margin: 0 auto;
+
+    padding: 65px 30px 40px;
+
+}
+
+/* Título de sección */
+
+.section-title {
+    max-width: 700px;
+    margin: 0 auto 45px;
+
+    text-align: center;
+
+}
+
+.section-title span {
+    display: inline-block;
+    margin-bottom: 10px;
+
+    font-size: 0.75rem;
+
+    letter-spacing: 3px;
+
+    color: #a78bfa;
+
+}
+
+.section-title h2 {
+    margin: 0 0 12px;
+    font-family: 'Playfair Display', serif;
+
+    font-size: clamp(2rem, 4vw, 3rem);
+
+    font-weight: 600;
+
+    color: #fff;
+
+}
+
+.section-title p {
+    margin: 0;
+    color: #a99bb8;
+
+    font-size: 0.95rem;
+
+    line-height: 1.7;
+
+}
+
+/* =========================================================
+GALERÍA
+========================================================= */
+
+.gallery {
+    display: grid;
+    grid-template-columns:
+    repeat(auto-fill, minmax(250px, 1fr));
+
+    gap: 22px;
+
+    width: 100%;
+
+}
+
+/* Tarjeta */
+
+.media-item {
+    position: relative;
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    background: #241432;
+
+    cursor: pointer;
+
+    box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.25);
+
+    border: 1px solid rgba(255, 255, 255, 0.06);
+
+    transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
+
+}
+
+/* Efecto al pasar */
+
+.media-item:hover {
+    transform: translateY(-7px);
+    border-color:
+    rgba(196, 181, 253, 0.3);
+
+    box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.4),
+    0 0 25px rgba(139, 92, 246, 0.12);
+
+}
+
+/* Imagen y video */
+
+.media-item img,
+.media-item video {
+    display: block;
+    width: 100%;
+    height: 270px;
+
+    object-fit: cover;
+
+    border: none;
+
+    border-radius: 0;
+
+    transition:
+    transform 0.6s ease,
+    filter 0.4s ease;
+
+}
+
+/* Zoom */
+
+.media-item:hover img,
+.media-item:hover video {
+    transform: scale(1.04);
+    filter: brightness(1.08);
+
+}
+
+/* Brillo sobre imagen */
+
+.media-item::after {
+    content: "";
+    position: absolute;
+
+    inset: 0;
+
+    background:
+    linear-gradient(
+    to top,
+    rgba(20, 10, 30, 0.35),
+    transparent 40%
+    );
+
+    pointer-events: none;
+
+}
+
+/* =========================================================
+SECCIÓN FINAL
+========================================================= */
+
+.next-section {
+    text-align: center;
+    padding: 70px 20px 100px;
+
+}
+
+.next-text {
+    margin: 0 0 25px;
+    color: #a99bb8;
+
+    font-family: 'Playfair Display', serif;
+
+    font-size: 1.25rem;
+
+    font-style: italic;
+
+}
+
+/* Botón continuar */
+
+.carta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 170px;
+
+    padding: 15px 32px;
+
+    border-radius: 50px;
+
+    background:
+    linear-gradient(
+    135deg,
+    #8b5cf6,
+    #a78bfa
+    );
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    box-shadow:
+    0 10px 30px rgba(139, 92, 246, 0.25);
+
+    transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+
+}
+
+.carta-button:hover {
+    transform: translateY(-4px);
+    box-shadow:
+    0 15px 40px rgba(139, 92, 246, 0.4);
+
+}
+
+/* =========================================================
+MODAL
+========================================================= */
+
+.modal {
+    display: none;
+    position: fixed;
+
+    inset: 0;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    background:
+    rgba(10, 5, 16, 0.94);
+
+    backdrop-filter: blur(8px);
+
+    z-index: 1000;
+
+}
+
+.modal.show {
+    display: flex;
+}
+
+/* Contenido */
+
+.modal-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+
+}
+
+/* Imagen / video grande */
+
+.modal-content img,
+.modal-content video {
+    max-width: 100%;
+    max-height: 86vh;
+    object-fit: contain;
+
+    border-radius: 14px;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    box-shadow:
+    0 25px 80px rgba(0, 0, 0, 0.7);
+
+}
+
+/* Botón cerrar */
+
+.close-button {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    color: #eee;
+
+    font-size: 1.8rem;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    z-index: 10;
+
+    transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+
+}
+
+.close-button:hover {
+    background: rgba(255, 255, 255, 0.16);
+    transform: rotate(90deg);
+
+}
+
+/* =========================================================
+RESPONSIVE - TABLET
+========================================================= */
+
+@media (max-width: 800px) {
+    .album-header {
+        padding: 80px 22px 70px;
+    }
+
+    .album-section {
+        padding: 50px 20px 30px;
+    }
+
+    .gallery {
+        grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+        gap: 14px;
+    }
+
+    .media-item img,
+    .media-item video {
+        height: 230px;
+    }
+
+}
+
+/* =========================================================
+RESPONSIVE - CELULAR
+========================================================= */
+
+@media (max-width: 520px) {
+    .album-header {
+        padding: 70px 20px 60px;
+    }
+
+    .small-title {
+        font-size: 0.7rem;
+
+        letter-spacing: 3px;
+    }
+
+    h1 {
+        font-size: 2.25rem;
+
+        line-height: 1.15;
+    }
+
+    .header-text {
+        font-size: 0.9rem;
+
+        line-height: 1.7;
+    }
+
+    .music-section {
+        padding-top: 30px;
+    }
+
+    .album-section {
+        padding: 45px 14px 25px;
+    }
+
+    .section-title {
+        margin-bottom: 30px;
+    }
+
+    .section-title h2 {
+        font-size: 2rem;
+    }
+
+    .section-title p {
+        font-size: 0.85rem;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 10px;
+    }
+
+    .media-item {
+        border-radius: 12px;
+    }
+
+    .media-item img,
+    .media-item video {
+        height: 210px;
+    }
+
+    .next-section {
+        padding: 55px 20px 80px;
+    }
+
+    .next-text {
+        font-size: 1.1rem;
+    }
+
+    .modal {
+        padding: 12px;
+    }
+
+    .modal-content img,
+    .modal-content video {
+        max-width: 100%;
+        max-height: 80vh;
+
+        border-radius: 10px;
+    }
+
+    .close-button {
+        top: 12px;
+        right: 12px;
+
+        width: 40px;
+        height: 40px;
+
+        font-size: 1.5rem;
+    }
+
+}
+
