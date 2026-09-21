@@ -644,3 +644,25 @@ RESPONSIVE - CELULAR
 
 }
 
+
+.video-play-badge {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    place-items: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.65);
+    color: white;
+    font-size: 24px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.media-item[role="button"]:focus-visible {
+    outline: 3px solid #c4b5fd;
+    outline-offset: 4px;
+}

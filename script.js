@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function showVideoInModal(index) {
         if (index < 0 || index > maxVidIndex) return;
-        modalContent.innerHTML = `<video autoplay controls playsinline><source src="vd/vd${index}.mp4" type="video/mp4"></video>`;
+        modalContent.innerHTML = `<video autoplay controls playsinline preload="metadata" poster="web-videos/vd${index}.jpg"><source src="web-videos/vd${index}.mp4" type="video/mp4"></video>`;
         modal.classList.add("show");
         currentVidIndex = index;
         currentImgIndex = null;
@@ -51,17 +51,25 @@ document.addEventListener("DOMContentLoaded", function() {
                 showImageInModal(index);
             });
         } else if (type === "video") {
-            const video = document.createElement("video");
-            video.autoplay = true;
-            video.loop = true;
-            video.muted = true;
-            video.playsinline = true;
-            const source = document.createElement("source");
-            source.src = `vd/vd${index}.mp4`;
-            source.type = "video/mp4";
-            source.onerror = () => div.remove(); // Elimina si el archivo no existe
-            video.appendChild(source);
-            div.appendChild(video);
+            // Cargar solo la portada hasta que se abra el video.
+            const poster = document.createElement("img");
+            poster.src = `web-videos/vd${index}.jpg`;
+            poster.alt = `Reproducir video ${index + 1}`;
+            poster.loading = "lazy";
+            div.appendChild(poster);
+            const playBadge = document.createElement("span");
+            playBadge.className = "video-play-badge";
+            playBadge.textContent = "▶";
+            playBadge.setAttribute("aria-hidden", "true");
+            div.appendChild(playBadge);
+            div.setAttribute("role", "button");
+            div.tabIndex = 0;
+            div.addEventListener("keydown", (event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    showVideoInModal(index);
+                }
+            });
             div.addEventListener("click", () => {
                 showVideoInModal(index);
             });
