@@ -1,8 +1,10 @@
 :root {
     --pink: #f9cade;
     --rose: #a33162;
-    --ink: #493640;
-    --muted: #765a65;
+    --purple: #754394;
+    --lavender: #d9b9ef;
+    --ink: #49334f;
+    --muted: #705772;
     --green: #365e47;
     --leaf: #dce9bf;
     --yellow: #ffe39a;
@@ -14,7 +16,7 @@ body {
     margin: 0;
     font-family: 'DM Sans', sans-serif;
     color: var(--ink);
-    background: linear-gradient(165deg, #fff0f5 0%, #fff8df 50%, #edf2dd 100%);
+    background: linear-gradient(155deg, #fce1ef 0%, #f1d4ef 35%, #e6d5f5 68%, #f6d4e8 100%);
     min-height: 100vh;
 }
 button, a { -webkit-tap-highlight-color: transparent; }
@@ -25,7 +27,7 @@ button:focus-visible, a:focus-visible, [role="button"]:focus-visible { outline: 
     padding: 100px 25px 85px;
     text-align: center;
     overflow: hidden;
-    background: radial-gradient(ellipse at 5% 85%, #f4abc8 0, transparent 50%), radial-gradient(ellipse at 95% 5%, #fff0b6 0, transparent 50%), #fbd4e3;
+    background: radial-gradient(ellipse at 5% 85%, #f4abc8 0, transparent 50%), radial-gradient(ellipse at 95% 5%, #d9b9ef 0, transparent 55%), #fbd4e3;
     border-bottom: 1px solid #eebacd;
 }
 .album-header::before {
@@ -44,11 +46,11 @@ h1:focus { outline: none; }
 .music-section { text-align: center; padding: 38px 20px 15px; }
 .music-button, .carta-button {
     display: inline-flex; align-items: center; justify-content: center; padding: 15px 30px;
-    border: 1px solid var(--green); border-radius: 50px; background: var(--green); color: #fffbe9;
+    border: 1px solid var(--purple); border-radius: 50px; background: var(--purple); color: #fff5fb;
     font-size: .95rem; font-weight: 600; cursor: pointer; text-decoration: none;
-    box-shadow: 0 8px 22px #365e4719; transition: transform .25s, background .25s;
+    box-shadow: 0 8px 22px #75439426; transition: transform .25s, background .25s;
 }
-.music-button:hover, .carta-button:hover { transform: translateY(-3px); background: #264a35; }
+.music-button:hover, .carta-button:hover { transform: translateY(-3px); background: #5f327c; }
 .music-button:disabled { cursor: wait; opacity: .75; }
 .music-description { margin: 13px auto 0; max-width: 580px; color: var(--muted); font-size: .83rem; line-height: 1.6; }
 .album-section { width: min(1400px, 100%); margin: 0 auto; padding: 60px 30px 40px; }
@@ -57,18 +59,18 @@ h1:focus { outline: none; }
 .section-title h2 { margin: 0 0 12px; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 500; color: var(--rose); }
 .section-title p { margin: 0; color: var(--muted); font-size: .95rem; line-height: 1.7; }
 .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 22px; width: 100%; }
-.media-item { position: relative; overflow: hidden; border-radius: 18px; background: var(--pink); cursor: pointer; border: 6px solid #fff9ee; box-shadow: 0 5px 18px #79485916; transition: transform .3s, box-shadow .3s; }
-.media-item:nth-child(3n + 2) { border-color: var(--yellow); background: var(--yellow); }
-.media-item:nth-child(3n) { border-color: var(--leaf); background: var(--leaf); }
+.media-item { position: relative; overflow: hidden; border-radius: 18px; background: var(--pink); cursor: pointer; border: 6px solid #efb6d3; box-shadow: 0 5px 18px #79485916; transition: transform .3s, box-shadow .3s; }
+.media-item:nth-child(3n + 2) { border-color: var(--lavender); background: var(--lavender); }
+.media-item:nth-child(3n) { border-color: #eac9ed; background: #eac9ed; }
 .media-item:hover { transform: translateY(-5px); box-shadow: 0 12px 30px #79485928; }
 .media-item img, .media-item video { display: block; width: 100%; height: 270px; object-fit: cover; transition: transform .4s; }
 .media-item:hover img { transform: scale(1.035); }
-.video-play-badge { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; background: var(--green); color: #fff5be; font-size: 24px; pointer-events: none; box-shadow: 0 3px 15px #0003; }
+.video-play-badge { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; background: var(--purple); color: #fff5be; font-size: 24px; pointer-events: none; box-shadow: 0 3px 15px #0003; }
 .next-section { text-align: center; padding: 65px 20px 90px; }
 .next-text { margin: 0 0 25px; color: var(--green); font-family: 'Playfair Display', Georgia, serif; font-size: 1.3rem; font-style: italic; }
 .carta-button { background: var(--rose); border-color: var(--rose); min-width: 170px; }
 .carta-button:hover { background: #87274e; }
-.modal { display: none; position: fixed; inset: 0; align-items: center; justify-content: center; padding: 25px; background: #24392ff2; backdrop-filter: blur(8px); z-index: 1000; }
+.modal { display: none; position: fixed; inset: 0; align-items: center; justify-content: center; padding: 25px; background: #302039f2; backdrop-filter: blur(8px); z-index: 1000; }
 .modal.show { display: flex; }
 .modal-content { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; }
 .modal-content img, .modal-content video { max-width: 100%; max-height: 86vh; object-fit: contain; border-radius: 14px; box-shadow: 0 20px 70px #0005; }
@@ -79,7 +81,7 @@ h1:focus { outline: none; }
 .is-loading .welcome-screen {
     display: grid; place-items: center; position: fixed; inset: 0; z-index: 2000;
     overflow: auto; padding: 32px 20px; isolation: isolate;
-    background: radial-gradient(ellipse at 0 0, #fff0b2 0, transparent 50%), radial-gradient(ellipse at 100% 100%, #dce9bf 0, transparent 48%), #f9cade;
+    background: radial-gradient(ellipse at 0 0, #fbdde9 0, transparent 50%), radial-gradient(ellipse at 100% 100%, #cfb2ec 0, transparent 58%), #f9cade;
 }
 .welcome-card { width: min(620px, 100%); margin: auto; position: relative; text-align: center; }
 .welcome-eyebrow { color: var(--green); font-size: .65rem; font-weight: 600; letter-spacing: 3px; margin: 26px 0 12px; }
@@ -90,7 +92,8 @@ h1:focus { outline: none; }
 .welcome-description { max-width: 455px; margin: 0 auto; color: #694451; font-size: .93rem; line-height: 1.8; }
 .journey { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 25px auto; }
 .journey span { padding: 8px 12px; border: 1px solid #a3316230; border-radius: 25px; font-size: .7rem; color: #714351; background: #fffaf14d; }
-.journey span:nth-child(2n) { background: #fff0b6a6; }
+.journey span:nth-child(2n) { background: #d9b9ef80; }
+.journey span:last-child { background: #fff0b680; }
 .welcome-music { display: inline-block; margin: 0 0 25px; color: var(--green); font-size: .84rem; line-height: 1.65; }
 .welcome-music > span { display: block; font-size: 1.6rem; margin-bottom: 4px; }
 .welcome-timer { max-width: 270px; height: 4px; border-radius: 9px; background: #a3316220; margin: 0 auto; overflow: hidden; }
