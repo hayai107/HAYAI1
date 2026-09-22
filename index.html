@@ -6,6 +6,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HAYAI</title>
+<meta name="theme-color" content="#f9cade">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<script>
+    window.introStartedAt = performance.now();
+    document.documentElement.classList.add('is-loading');
+    // Evita bloquear la página si el archivo principal no llega a cargar.
+    window.introFallback = setTimeout(() => {
+        document.documentElement.classList.remove('is-loading');
+        const content = document.getElementById('site-content');
+        if (content) content.inert = false;
+    }, 20000);
+</script>
 
 <link rel="stylesheet" href="estilos.css">
 <link rel="icon" type="image/x-icon" href="img2.ico">
@@ -13,6 +27,28 @@
 </head>
 
 <body>
+<section class="welcome-screen" id="welcome-screen" aria-labelledby="welcome-title">
+    <div class="welcome-orbit orbit-one" aria-hidden="true"></div>
+    <div class="welcome-orbit orbit-two" aria-hidden="true"></div>
+    <div class="welcome-card">
+        <div class="flower" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><b></b></div>
+        <p class="welcome-eyebrow">HECHO CON AMOR, SOLO PARA TI</p>
+        <h2 id="welcome-title" tabindex="-1">HAYAI<span aria-hidden="true">.</span></h2>
+        <p class="welcome-subtitle">Nuestra historia también florece aquí.</p>
+        <p class="welcome-description">Un viaje por nuestras fotos, una carta desde el corazón,
+            un pedacito del universo con la NASA y flores amarillas para ti.</p>
+        <div class="journey" aria-label="Lo que te espera">
+            <span>01 · Recuerdos</span><span>02 · Una carta</span>
+            <span>03 · El universo</span><span>04 · Flores</span>
+        </div>
+        <p class="welcome-music"><span aria-hidden="true">♫</span> Antes de explorar, recuerda encender<br class="desktop-break"> la música en <strong>cada página</strong>.</p>
+        <div class="welcome-timer" aria-hidden="true"><span id="welcome-progress"></span></div>
+        <p class="welcome-status">Preparando un pequeño lugar para nosotros… <span id="welcome-seconds">15 s</span></p>
+        <button class="welcome-skip" id="welcome-skip" type="button">Entrar ahora <span aria-hidden="true">↗</span></button>
+    </div>
+</section>
+<audio id="background-music" src="musica/musica1.mp3" preload="auto" loop></audio>
+<div id="site-content">
 <!-- Encabezado principal -->
 <header class="album-header">
 
@@ -22,7 +58,7 @@
             Para la mejor persona que conocí el 2026
         </p>
 
-        <h1>
+        <h1 tabindex="-1" id="album-title">
             Un pequeño lugar para nuestros recuerdos
         </h1>
 
@@ -35,9 +71,6 @@
             Te amo mucho.
         </p>
 
-        <p class="header-text">
-            (dale paciencia a la pagina XD, no está en un servidor costoso :'v'). <br>
-        </p>
     </div>
 
 </header>
@@ -48,14 +81,16 @@
 
     <button
         class="music-button"
+        type="button"
+        aria-pressed="false"
         onclick="playAudio1()">
 
-        ESCUCHAR NUESTRA MUSICA
+        ♫ Encender nuestra música
 
     </button>
 
-    <p class="music-description">
-        Puedes ponerla mientras recorres nuestros recuerdos.
+    <p class="music-description" id="music-status" aria-live="polite">
+        Enciéndela aquí y recuerda hacerlo en cada nueva página.
     </p>
 
 </section>
@@ -130,6 +165,7 @@
 
 </div>
 
+</div>
 
 <script src="script.js"></script>
 
